@@ -107,6 +107,23 @@ gltfLoader.load("/model/gallery/serve_room.glb", (gltf) => {
 
 // });
 
+//click để chuyển sang góc nhìn khác //  room 3 //serve_room
+window.addEventListener("mouseup", function () {
+  switch (position) {
+    case 0:
+      cameraMovement(0.48, 1.09, -2.11);
+      cameraRotation(-3.12, 0.22, 3.13);
+      position = 1;
+      break;
+
+    case 1:
+      cameraMovement(2, 1, 0.5);
+      cameraRotation(0.14, 0.8, -0.109);
+      position = 0;
+      break;
+  }
+});
+
 function cameraMovement(x, y, z) {
   gsap.to(camera.position, {
     x,
