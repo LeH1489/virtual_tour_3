@@ -21,6 +21,9 @@ const camera = new THREE.PerspectiveCamera(
 );
 
 //initial position of the camera of gallery room
+//camera.position.set(-4.9, 4.4, 1.9);
+//camera.rotation.set(-0.9, -0.8, -0.8);
+//initial position of the camera of gallery room
 camera.position.set(-4.9, 4.4, 1.9);
 camera.rotation.set(-0.9, -0.8, -0.8);
 
@@ -41,7 +44,7 @@ let position = 0;
 
 //gltf loader
 const gltfLoader = new GLTFLoader();
-gltfLoader.load("/model/gallery/serve_room.glb", (gltf) => {
+gltfLoader.load("/model/apartment/a1.glb", (gltf) => {
   console.log("Our model here!", gltf);
   const model = gltf.scene;
   scene.add(model);
@@ -57,33 +60,50 @@ gltfLoader.load("/model/gallery/serve_room.glb", (gltf) => {
   });
 
   //click để chuyển sang góc nhìn khác // gallery room
-  window.addEventListener("mouseup", function () {
-    switch (position) {
-      case 0:
-        cameraMovement(-6.0, 1.72, 1.34);
-        cameraRotation(-2.75, -1.24, -2.77);
-        position = 1;
-        break;
+//   window.addEventListener("mouseup", function () {
+//     switch (position) {
+//       case 0:
+//         cameraMovement(-6.0, 1.72, 1.34);
+//         cameraRotation(-2.75, -1.24, -2.77);
+//         position = 1;
+//         break;
 
-      case 1:
-        cameraMovement(0.48, 2.09, -2.11);
-        cameraRotation(-3.12, 0.22, 3.13);
-        position = 2;
-        break;
+//       case 1:
+//         cameraMovement(0.48, 2.09, -2.11);
+//         cameraRotation(-3.12, 0.22, 3.13);
+//         position = 2;
+//         break;
 
-      case 2:
-        cameraMovement(-1.49, 1.7, 0.48);
-        cameraRotation(0.44, 1.43, -0.44);
-        position = 3;
-        break;
-      case 3:
-        cameraMovement(1, 3, 0.5);
-        cameraRotation(0.14, 0.8, -0.109);
-        position = 0;
-        break;
-    }
-  });
+//       case 2:
+//         cameraMovement(-1.49, 1.7, 0.48);
+//         cameraRotation(0.44, 1.43, -0.44);
+//         position = 3;
+//         break;
+//       case 3:
+//         cameraMovement(1, 3, 0.5);
+//         cameraRotation(0.14, 0.8, -0.109);
+//         position = 0;
+//         break;
+//     }
+//   });
+ });
+//click để chuyển sang góc nhìn khác //  room 2
+window.addEventListener("mouseup", function () {
+  switch (position) {
+    case 0:
+      cameraMovement(0.48, 1.09, -2.11);
+      cameraRotation(-3.12, 0.22, 3.13);
+      position = 1;
+      break;
+
+    case 1:
+      cameraMovement(1, 1, 0.5);
+      cameraRotation(0.14, 0.8, -0.109);
+      position = 0;
+      break;
+  }
 });
+
 
 // });
 
